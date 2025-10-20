@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Время Намаза - Страны СНГ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🕌 Время Намаза</h1>
+            <p class="subtitle">Расписание молитв для стран СНГ</p>
+        </header>
+
+        <div class="selection-panel">
+            <div class="select-group">
+                <label for="country">Выберите страну:</label>
+                <select id="country" onchange="loadCities()">
+                    <option value="">-- Выберите страну --</option>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <label for="city">Выберите город:</label>
+                <select id="city" disabled>
+                    <option value="">-- Сначала выберите страну --</option>
+                </select>
+            </div>
+
+            <button id="getPrayerTimes" onclick="getPrayerTimes()" disabled>
+                Получить расписание
+            </button>
+        </div>
+
+        <div id="currentDate" class="current-date"></div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Загрузка времени намаза...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="prayerTimesContainer" class="prayer-times-container" style="display: none;">
+            <h2 id="locationName"></h2>
+            <div id="prayerTimes" class="prayer-times"></div>
+
+            <div class="next-prayer">
+                <h3>Следующий намаз:</h3>
+                <div id="nextPrayer" class="next-prayer-info"></div>
+            </div>
+
+            <div class="calculation-method">
+                <p><strong>Метод расчета:</strong> <span id="method">Духовное управление мусульман России</span></p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Данные предоставлены через Aladhan API</p>
+            <p class="note">⚠️ Точное время может отличаться в зависимости от местных условий. Рекомендуется уточнять у местной мечети.</p>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
