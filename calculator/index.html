@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔢 Калькулятор</h1>
+            <p class="subtitle">Простой и удобный онлайн калькулятор</p>
+        </header>
+
+        <div class="calculator">
+            <div class="display-container">
+                <div id="previousOperand" class="previous-operand"></div>
+                <div id="currentOperand" class="current-operand">0</div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-function" onclick="calculator.clear()">C</button>
+                <button class="btn btn-function" onclick="calculator.delete()">DEL</button>
+                <button class="btn btn-function" onclick="calculator.changeSign()">±</button>
+                <button class="btn btn-operator" onclick="calculator.chooseOperation('÷')">÷</button>
+
+                <button class="btn btn-number" onclick="calculator.appendNumber('7')">7</button>
+                <button class="btn btn-number" onclick="calculator.appendNumber('8')">8</button>
+                <button class="btn btn-number" onclick="calculator.appendNumber('9')">9</button>
+                <button class="btn btn-operator" onclick="calculator.chooseOperation('×')">×</button>
+
+                <button class="btn btn-number" onclick="calculator.appendNumber('4')">4</button>
+                <button class="btn btn-number" onclick="calculator.appendNumber('5')">5</button>
+                <button class="btn btn-number" onclick="calculator.appendNumber('6')">6</button>
+                <button class="btn btn-operator" onclick="calculator.chooseOperation('-')">-</button>
+
+                <button class="btn btn-number" onclick="calculator.appendNumber('1')">1</button>
+                <button class="btn btn-number" onclick="calculator.appendNumber('2')">2</button>
+                <button class="btn btn-number" onclick="calculator.appendNumber('3')">3</button>
+                <button class="btn btn-operator" onclick="calculator.chooseOperation('+')">+</button>
+
+                <button class="btn btn-number" onclick="calculator.appendNumber('0')">0</button>
+                <button class="btn btn-number" onclick="calculator.appendNumber('.')">.</button>
+                <button class="btn btn-percent" onclick="calculator.calculatePercent()">%</button>
+                <button class="btn btn-equals" onclick="calculator.compute()">=</button>
+            </div>
+        </div>
+
+        <div class="history-container" id="historyContainer" style="display: none;">
+            <h3>История вычислений</h3>
+            <div id="history" class="history"></div>
+            <button class="btn-clear-history" onclick="calculator.clearHistory()">Очистить историю</button>
+        </div>
+
+        <footer>
+            <p>Используйте клавиатуру для ввода чисел и операций</p>
+            <p class="note">Клавиши: 0-9 (цифры), +, -, *, / (операции), Enter (=), Escape (C), Backspace (DEL)</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
